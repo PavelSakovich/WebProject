@@ -62,7 +62,4 @@ public class UserServiceImpl implements UserService {
         log.info("List  was got users");
         return userRepository.getUsersByNumberHouse(house);
     }
-    public void delete () {
-        List<String> list = new ArrayList<>();
-    }
 }

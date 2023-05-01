@@ -1,6 +1,7 @@
 package org.example.controller;
 
 
+import lombok.AllArgsConstructor;
 import org.example.entity.User;
 import org.example.exceptionProject.UserOutputException;
 import org.example.service.UserService;
@@ -13,10 +14,11 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
+@AllArgsConstructor
 @RequestMapping("/user")
 public class UserController {
-    @Autowired
-    private UserService userService;
+
+    private final UserService userService;
 
     @GetMapping()
     public String index(Model model) {
