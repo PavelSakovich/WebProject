@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html land="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset = "UTF-8">
+    <title> Enter in application</title>
+</head>
+<body>
+<form name="f" methods="post" action="/process_login">
+    <label for="username"> Enter username</label>
+    <input type="text" name="username" id="username"/>
+    </br>
+    <label for="password"> Enter password </label>
+    <input type="password" name="password" id="password"/>
+    </br>
+    <input type="submit" value="Login"/>
+    <div th:if="${param.error}" style="color: red">
+        Not found password or login
+    </div>
+</form>
+</body>
+</html>
+
+<!--<head>-->
+<!--    <title>Spring Security </title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div align="center"/>-->
+<!--<h1>Login to my application</h1>-->
+<!--</br>  </br>-->
+<!--<div th:if="${param.error}">-->
+<!--    Invalid username and password.-->
+<!--</div>-->
+<!--<div th:if="${param.logout}">-->
+<!--    You have been logged out.-->
+<!--</div>-->
+<!--<form th:action="@{/login}" method="post" action="/process_login">-->
+<!--<div><label> Enter USERNAME : <input type="text" name="username"/> </label></div>-->
+<!--<div><label> Enter PASSWORD: <input type="password" name="password"/> </label></div>-->
+<!--<div><input type="submit" value="Sign In"/></div>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

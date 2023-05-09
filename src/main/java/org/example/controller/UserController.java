@@ -30,7 +30,11 @@ public class UserController {
     public String getAddress(Model model, @RequestParam int id) throws UserOutputException {
         User address = userService.getUserById(id);
         model.addAttribute("address", address);
-        return "user/address";
+        return "user/address"
+
+
+
+                ;
     }
 
     @DeleteMapping("/{id}")
