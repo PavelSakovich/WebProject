@@ -3,12 +3,11 @@ package org.example.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.example.entity.User;
-import org.example.exceptionProject.UserOutputException;
+import org.example.exception.UserOutputException;
 import org.example.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,7 +22,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUser(User user) {
         userRepository.save(user);
-        log.info("Users added in database");
+        log.info("User added in database");
 
     }
 
@@ -47,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(User user) {
+    public void update(User user) {
         userRepository.save(user);
         log.info("User update");
     }

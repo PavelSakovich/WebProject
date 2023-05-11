@@ -3,15 +3,12 @@ package org.example.controller;
 
 import lombok.AllArgsConstructor;
 import org.example.entity.User;
-import org.example.exceptionProject.UserOutputException;
+import org.example.exception.UserOutputException;
 import org.example.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-
 
 @Controller
 @AllArgsConstructor
@@ -30,11 +27,7 @@ public class UserController {
     public String getAddress(Model model, @RequestParam int id) throws UserOutputException {
         User address = userService.getUserById(id);
         model.addAttribute("address", address);
-        return "user/address"
-
-
-
-                ;
+        return "user/address";
     }
 
     @DeleteMapping("/{id}")
@@ -42,14 +35,15 @@ public class UserController {
         userService.deleteUserById(id);
         return "redirect:/user";
     }
+
     @DeleteMapping("/delete")
-    public String deleteAllUsers() {
+    public String deleteAll() {
         userService.deleteAllUsers();
         return "redirect:/user";
     }
 
     @GetMapping("/{id}/edit")
-    public String update(Model model, @PathVariable("id") int id) throws UserOutputException{
+    public String update(Model model, @PathVariable("id") int id) throws UserOutputException {
         model.addAttribute("person", userService.getUserById(id));
         return "user/new";
     }
@@ -61,7 +55,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("person")  User user){
+    public String create(@ModelAttribute("person") User user) {
         userService.addUser(user);
         return "redirect:/user";
     }

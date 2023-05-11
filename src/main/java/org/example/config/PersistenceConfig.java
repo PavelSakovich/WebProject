@@ -1,5 +1,6 @@
 package org.example.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -31,13 +32,9 @@ import java.util.Properties;
 @Configuration
 @EnableJpaRepositories("org.example.repository")
 @ComponentScan("org.example")
+@RequiredArgsConstructor
 public class PersistenceConfig implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
-
-    @Autowired
-    public PersistenceConfig(ApplicationContext applicationContext) {
-        this.applicationContext = applicationContext;
-    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -80,6 +77,7 @@ public class PersistenceConfig implements WebMvcConfigurer {
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
+
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();

@@ -1,7 +1,7 @@
 package org.example.service;
 
 import org.example.entity.User;
-import org.example.exceptionProject.UserOutputException;
+import org.example.exception.UserOutputException;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface UserService {
 
     User getUserById(int id) throws UserOutputException;
 
-    void updateUser(User user);
+    void update(User user);
 
     void deleteAllUsers();
 
